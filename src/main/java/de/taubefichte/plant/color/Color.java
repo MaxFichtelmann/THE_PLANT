@@ -1,15 +1,31 @@
 package de.taubefichte.plant.color;
 
-import de.taubefichte.plant.Attribute;
-
-public interface Color extends Attribute<Color>
-{   
-    @Override
-    public Color combine( Color other );
+public class Color
+{
+    private int red;
+    private int green;
+    private int blue;
     
-    public int getRed();
+    public Color( int red, int green, int blue )
+    {
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+    }
     
-    public int getGreen();
+    public int getRed()
+    {
+        return red;
+    }
     
-    public int getBlue();
+    public int getGreen()
+    {
+        return green;
+    }
+    
+    public int getBlue()
+    {
+        return blue;
+    }
+    
 }

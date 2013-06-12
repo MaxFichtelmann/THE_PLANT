@@ -2,8 +2,8 @@ package de.taubefichte.plant.color;
 
 import de.taubefichte.plant.Feature;
 
-public interface ColorFeature extends Feature<ColorGene, Color>
+public interface ColorFeature extends Feature<ColorGene, ColorAttribute>
 {   
     @Override
-    public Color getPhenotype();
+    public ColorAttribute getPhenotype();
 }
