@@ -1,5 +1,8 @@
 package de.taubefichte.plant.color;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 public class ColorAttributeImplementation implements ColorAttribute
 {
     private Color color;
@@ -27,4 +30,15 @@ public class ColorAttributeImplementation implements ColorAttribute
         return new ColorAttributeImplementation( new Color( red, green, blue ) );
     }
     
+    @Override
+    public boolean equals( Object that )
+    {
+        return EqualsBuilder.reflectionEquals( this, that );
+    }
+    
+    @Override
+    public int hashCode()
+    {
+        return HashCodeBuilder.reflectionHashCode( this );
+    }
 }

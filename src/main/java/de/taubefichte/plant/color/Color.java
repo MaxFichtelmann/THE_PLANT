@@ -1,5 +1,8 @@
 package de.taubefichte.plant.color;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 public class Color
 {
     private int red;
@@ -28,4 +31,15 @@ public class Color
         return blue;
     }
     
+    @Override
+    public boolean equals( Object that )
+    {
+        return EqualsBuilder.reflectionEquals( this, that );
+    }
+    
+    @Override
+    public int hashCode()
+    {
+        return HashCodeBuilder.reflectionHashCode( this );
+    }
 }
