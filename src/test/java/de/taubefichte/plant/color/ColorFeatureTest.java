@@ -39,6 +39,12 @@ public class ColorFeatureTest
      */
     ColorFeature orangeRecessiveMix;
     
+    /**
+     * gene1: dominant, red <br/>
+     * gene2: dominant, yellow
+     */
+    ColorFeature dominantRedYellowMix;
+    
     @Before
     public void setup()
     {
@@ -50,6 +56,7 @@ public class ColorFeatureTest
         ColorGeneImplementation redDominant = new ColorGeneImplementation( DOMINANT, red );
         ColorGeneImplementation redStandard = new ColorGeneImplementation( STANDARD, red );
         ColorGeneImplementation redRecessive = new ColorGeneImplementation( RECESSIVE, red );
+        ColorGeneImplementation yellowDominant = new ColorGeneImplementation( DOMINANT, yellow );
         ColorGeneImplementation yellowRecessive = new ColorGeneImplementation( RECESSIVE, yellow );
         ColorGeneImplementation blueDominant = new ColorGeneImplementation( DOMINANT, blue );
         ColorGeneImplementation whiteStandard = new ColorGeneImplementation( STANDARD, white );
@@ -60,6 +67,7 @@ public class ColorFeatureTest
         this.pinkStandardMix = new ColorFeatureImplementation( redStandard, whiteStandard );
         this.redStandard = new ColorFeatureImplementation( redStandard, yellowRecessive );
         this.orangeRecessiveMix = new ColorFeatureImplementation( redRecessive, yellowRecessive );
+        this.dominantRedYellowMix = new ColorFeatureImplementation( redDominant, yellowDominant );
     }
     
     @Test
@@ -67,6 +75,15 @@ public class ColorFeatureTest
     {
         ColorAttribute result = pureRed.getPhenotype();
         Color expected = new Color( 255, 0, 0 );
+        
+        assertThat( result.getColor(), is( equalTo( expected ) ) );
+    }
+    
+    @Test
+    public void dominantMix()
+    {
+        ColorAttribute result = dominantRedYellowMix.getPhenotype();
+        Color expected = new Color( 255, 127, 0 );
         
         assertThat( result.getColor(), is( equalTo( expected ) ) );
     }
