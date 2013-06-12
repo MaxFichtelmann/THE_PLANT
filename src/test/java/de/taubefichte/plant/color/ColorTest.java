@@ -4,10 +4,11 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class ColorTest
-{   
+{
     /**
      * 255,0,0
      */
@@ -33,6 +34,21 @@ public class ColorTest
      */
     ColorAttribute whiteColor;
     
+    @Before
+    public void setup()
+    {
+        Color red = new Color( 255, 0, 0 );
+        Color green = new Color( 0, 255, 0 );
+        Color yellow = new Color( 255, 255, 0 );
+        Color black = new Color( 0, 0, 0 );
+        Color white = new Color( 255, 255, 255 );
+        
+        redColor = new ColorAttributeImplementation( red );
+        greenColor = new ColorAttributeImplementation( green );
+        yellowColor = new ColorAttributeImplementation( yellow );
+        blackColor = new ColorAttributeImplementation( black );
+        whiteColor = new ColorAttributeImplementation( white );
+    }
     
     @Test
     public void equalColor()
@@ -90,9 +106,8 @@ public class ColorTest
         // tests if Color implements the equals method
         assertThat( result1Color, is( equalTo( result2Color ) ) );
         
-        //tests if ColorAttribute implements the equals method
+        // tests if ColorAttribute implements the equals method
         assertThat( result1, is( equalTo( result2 ) ) );
     }
-   
     
 }
